@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      My connections
+    </ion-title>
+    <ion-button routerLink="/dashboard" routerDirection="root" slot="end">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-accordion class="headers-align" style="margin-top: 5px;">
+    <mat-expansion-panel
+      *ngFor="let connection of connections; let i = index"
+      [expanded]="step === i"
+      (opened)="setStep(i)"
+    >
+      <mat-expansion-panel-header color="primary">
+        <mat-panel-title style="padding:10px">
+          {{ connection?.name }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ connection?.distance }} km
+
+          <ion-avatar>
+            <img [src]="connection?.picture" />
+          </ion-avatar>
+
+          <!-- <ion-avatar>
+            <img
+              src="{{ connection?.picture }}"
+              style="width: 45px; height: 45px"
+            />
+          </ion-avatar> -->
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <p>
+        You can see:
+        <span *ngFor="let entry of connection?.location | keys">
+          <span *ngIf="entry.value === 'Yes'">
+            {{ entry.key | titlecase }}: {{ entry.value }}
+          </span>
+        </span>
+      </p>
+
+      <mat-action-row>
+        <span style="float: left">
+          <button mat-stroked-button color="accent" (click)="updateLocation(connection?.connectionId)">Access update</button>          
+          <button mat-stroked-button color="warn" (click)="delete(connection?.connectionId, connection?.name)">Delete</button>
+        </span>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <!-- <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+              <input matInput placeholder="First name">
+            </mat-form-field>
+        
+          <mat-form-field>
+            <input matInput type="number" min="1" placeholder="Age">
+          </mat-form-field>
+
+          <mat-action-row>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+    </mat-expansion-panel>    -->
+  </mat-accordion>
+</ion-content>
+
+<ion-footer class="bar-balanced">
+  <ion-item-divider color="primary" class="item-centre">
+    <ion-label style="font: TitilliumWeb; font-size: 12px;">
+      Connect & Care
+    </ion-label>
+  </ion-item-divider>
+</ion-footer>

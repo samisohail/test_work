@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-family: 'Titillium-sb'"> How you see each other </ion-title>      
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <table style="width: 80%;">
+    <tr>
+      <td class="table_cell" colspan="2"> I am sharing </td>
+    </tr>
+    <tr>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.mySharedLocationDetails?.distance' [disabled] = "true" class="table_cell"> Distance </mat-checkbox> </td>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.mySharedLocationDetails?.building' 
+        (change) = "locationSelectionChanged('building', $event.checked)" class="table_cell"> Building </mat-checkbox> </td>
+    </tr>
+    <tr>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.mySharedLocationDetails?.street' 
+        (change) = "locationSelectionChanged('street', $event.checked)" class="table_cell"> Street/Road </mat-checkbox> </td>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.mySharedLocationDetails?.city' 
+        (change) = "locationSelectionChanged('city', $event.checked)" class="table_cell"> City </mat-checkbox> </td>     
+    </tr>
+
+    <tr>
+        <td>  <mat-checkbox [checked] = 'locationSharedInfo?.mySharedLocationDetails?.state' 
+          (change) = "locationSelectionChanged('state', $event.checked)" class="table_cell"> State </mat-checkbox> </td>
+        <td>  <mat-checkbox [checked] = 'locationSharedInfo?.mySharedLocationDetails?.country' 
+           (change) = "locationSelectionChanged('country', $event.checked)" class="table_cell"> Country </mat-checkbox> </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+          <button mat-flat-button class="update_button" color="primary" (click)="updateLocationDetails()">Update location sharing details</button>
+      </td>
+    </tr>
+  </table>
+
+  <mat-divider class="padding">  </mat-divider>
+
+  <table style="width: 80%">
+    <tr>
+      <td class="table_cell" colspan="2"> <strong>  {{ selectedUser?.name }} </strong>, sharing with you: </td>
+    </tr>
+    <tr>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.friendSharedLocationDetails?.distance' [disabled] = 'true' class="table_cell"> Distance </mat-checkbox> </td>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.friendSharedLocationDetails?.building' [disabled] = 'true' class="table_cell"> Building </mat-checkbox> </td>
+    </tr>
+    <tr>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.friendSharedLocationDetails?.street' [disabled] = 'true' class="table_cell"> Street/Road </mat-checkbox> </td>
+      <td>  <mat-checkbox [checked] = 'locationSharedInfo?.friendSharedLocationDetails?.city' [disabled] = 'true' class="table_cell"> City </mat-checkbox> </td>
+    </tr>
+    <tr>
+        <td>  <mat-checkbox [checked] = 'locationSharedInfo?.friendSharedLocationDetails?.state' [disabled] = 'true' class="table_cell"> State </mat-checkbox> </td>
+        <td>  <mat-checkbox [checked] =  'locationSharedInfo?.friendSharedLocationDetails?.country' [disabled] = 'true' class="table_cell"> Country </mat-checkbox> </td>
+    </tr>
+  </table>
+
+  <mat-divider>  </mat-divider>
+</ion-content>

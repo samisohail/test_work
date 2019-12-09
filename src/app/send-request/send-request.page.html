@@ -1,0 +1,119 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+        <ion-title>
+          Add a friend
+            <!-- <span class="mat-small">This header will be styled </span> -->
+        </ion-title>
+
+        <ion-button routerLink="/dashboard" routerDirection="root" slot="end">
+          <ion-icon slot="icon-only" name="home"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+
+<div style="display: none">
+<img src='./assets/images/parrot.PNG' alt="" height="100px;width:100%" />
+</div>
+
+<div class="padding">
+    <form [formGroup]="form" (submit)="submit()">
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput placeholder="Friend's Access Code"
+          style="font-family: TitilliumWeb; font-size: 16px" pattern="\d*" maxlength="13" 
+          formControlName="accessCode" required (focusout) = "validateAccessCode($event.target)">
+        </mat-form-field>
+        <mat-hint style="color:darkolivegreen;font-family: TitilliumWeb;text-align: right; font-size: 16px;"> {{ fullName }} 
+        </mat-hint>
+      </div>
+
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput placeholder="Message"  style="font-family: TitilliumWeb"
+          formControlName="message" required maxlength="50">
+        </mat-form-field>
+      </div>
+
+      <div style="min-height: 30px;">
+        <mat-form-field class="full-width" appearance="outline">
+        <mat-select name="group" matInput placeholder="Select Group" class="table_cell">
+          <!-- <mat-option *ngFor="let group of groups" [value]="group">{{group}}</mat-option> -->
+          <mat-option value="Family" class="table_cell">Family member</mat-option>
+          <mat-option value="Friends" class="table_cell">Friend</mat-option>          
+          <mat-option value="Common" class="table_cell">Common group</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>    
+
+      <!-- <div class="text-center">
+        <table mat-table [dataSource]="dataSource" style="width: 100%" class="mat-elevation-z1">
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+              [checked] = "selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+              [aria-label]="checkboxLabel()"
+              >
+              </mat-checkbox>
+            </th>
+
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? selection.toggle(row) : null"
+                              [checked]="selection.isSelected(row) || row.name === 'My Distance'"
+                              [aria-label]="checkboxLabel(row)"
+                              [disabled]="row.name === 'My Distance'"
+                              >
+                </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Share </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selection.toggle(row)">
+          </tr>
+        </table>
+      </div>   -->
+       
+      <table style="width: 100%;">
+        <tr>
+          <td class="table_cell"> Share my </td>
+        </tr>
+        <tr>
+          <td>  <mat-checkbox [checked]="true" [disabled] = "true" class="table_cell"> Distance </mat-checkbox> </td>
+          <td>  <mat-checkbox (change) = "locationSelectionChanges('building', $event.checked)" class="table_cell"> Building </mat-checkbox> </td>
+          <td>  <mat-checkbox (change) = "locationSelectionChanges('street', $event.checked)" class="table_cell"> Street/Road </mat-checkbox> </td>
+        </tr>
+        <tr>
+          <td>  <mat-checkbox (change) = "locationSelectionChanges('city', $event.checked)" class="table_cell"> City </mat-checkbox> </td>
+          <td>  <mat-checkbox (change) = "locationSelectionChanges('state', $event.checked)" class="table_cell"> State </mat-checkbox> </td>
+          <td>  <mat-checkbox (change) = "locationSelectionChanges('country', $event.checked)" class="table_cell"> Country </mat-checkbox> </td>
+        </tr>
+      </table>
+
+      <div style="text-align: center; padding-top: 15px;">
+          <button mat-stroked-button color="primary" [disabled]="!isValidAccessCode">Send request</button>
+        </div>      
+    </form>   
+</div>
+</ion-content>
+
+<app-footer></app-footer>
+<!-- <ion-footer class="bar-balanced"> 
+    <ion-item-divider color="primary" class="item-centre">
+        <ion-label>
+          Connect & Care
+        </ion-label>
+      </ion-item-divider>  
+</ion-footer> -->
+

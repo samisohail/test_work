@@ -1,0 +1,63 @@
+// .welcome-card img {
+//   max-height: 35vh;
+//   overflow: hidden;
+// }
+
+
+.ion-card,
+ion-card-header,
+ion-card-content,
+p, input {
+  font-family: "TitilliumWeb";
+}
+
+ion-card-content {
+  font-size: 18px;
+}
+
+
+.header-image {
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
+}
+
+.card-container {
+  /*  not needed styles to reflect it */   
+  padding: 10px;
+  color: black;
+  /* needed styles below */
+  /* display: flex; */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.distance {
+  font-size: 14px;
+  color: darkmagenta;
+  font-weight: bold;
+}
+
+.fixed-label {
+  min-width: 50% !important;  
+  flex: 0 0 150px;
+  align-self: stretch;
+  // width: 300px !important;
+  // max-width: 400px !important;
+}
+
+#notification-button {            
+  position: relative;
+  width: 42px;
+  top:1px;
+  right: 1px;
+  overflow: visible!important;
+}
+
+
+#notifications-badge {
+  background-color: red;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  border-radius: 100%;
+}

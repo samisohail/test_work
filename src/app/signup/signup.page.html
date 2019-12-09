@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <!-- <ion-toolba> -->
+        <ion-title>
+          Create account (It's free) 
+            <!-- <span class="mat-small">This header will be styled </span> -->
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<form [formGroup]="registerForm" (submit)="register()">
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Name" formControlName="name" required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Email"  formControlName="email" required>    
+  </mat-form-field>
+  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+    <div *ngIf="f.email.errors.required">Email is required</div>
+    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+  </div>
+ 
+  <mat-form-field class="full-width">
+    <input matInput placeholder="PIN (4 numbers only)"  formControlName="passKey" required
+    pattern="\d*" maxlength="4" >
+  </mat-form-field>
+ 
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Re-type PIN"  formControlName="confirmPassKey" required
+    pattern="\d*" maxlength="4">
+    <div *ngIf="f.confirmPassKey.errors?.mustMatch">PIN must match</div>
+  </mat-form-field>
+  <div *ngIf="invalidPIN" class="error">PIN not re-typed correctly.</div>
+ 
+ <div style="text-align: center">
+    <button mat-stroked-button color="primary" [disabled]="registerForm.invalid">Create account</button>
+</div>
+
+</form>
+
+<hr />
+
+</ion-content>
+
+<button mat-raised-button color="primary" (click)="redirectToLogin()" style="width: 100%">Login</button>
+<ion-footer>
+  Already have account?
+</ion-footer>

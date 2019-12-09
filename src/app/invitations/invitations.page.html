@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Invitations
+    </ion-title>
+    <ion-button routerLink="/dashboard" routerDirection="root" slot="end">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg">
+  <ion-card *ngFor="let invitation of invitations">
+    <!-- <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>ion-item in a card, icon left, button right</ion-label>
+          <ion-button fill="outline" slot="end">View</ion-button>
+        </ion-item> -->
+
+    <!-- <ion-card-subtitle slot="end">
+        <img src="./assets/images/person_icon.png" alt="" style="height: 50px; width: 50px;" />        
+      </ion-card-subtitle> -->
+
+    <ion-card-header>
+      <span style="color: black"> {{ invitation?.requestByName }} </span>
+      <span style="float: right;" *ngIf="invitation.photo === null">
+        <ion-avatar>
+          <img src="./assets/images/person_icon.png" style="height: 50px; width: 50px;" />
+        </ion-avatar>
+      </span>
+      
+        <span style="float: right; margin-top: -15px;" *ngIf="invitation.photo !== null">
+          <ion-avatar>
+            <img src = '{{ invitation?.picture }}' style="height: 50px; width: 50px;" />
+          </ion-avatar>
+
+          <!-- <img
+            src = '{{ invitation?.picture }}'
+            alt=""
+            style="height: 50px; width: 50px;"
+          /> -->
+      </span>  
+    </ion-card-header>
+
+    <ion-card-content>
+      <div>
+        <span>{{ invitation?.message }}</span>
+        <span style="float: right; display: none">
+          <button
+            mat-button
+            slot="end"
+            (click)="viewRequestDetails(invitation.requestId)"
+          >
+            Details
+          </button>
+        </span>
+      </div>
+      <p mat-line>
+          Sharing:
+              {{ locationObject(invitation?.sharedLocationDetails) }}
+      </p>
+      <p mat-line style="text-align: right">
+        <button
+          mat-stroked-button
+          color="basic"
+          class="padding"
+          (click)="respond(invitation.requestId, true)"
+        >
+          <mat-icon>done</mat-icon>
+          Accept
+        </button>
+        <button
+          mat-stroked-button
+          color="warn"
+          class="padding-left padding"
+          (click)="respond(invitation.requestId, false)"
+        >
+          <mat-icon>clear</mat-icon>
+          Reject
+        </button>
+      </p>
+    </ion-card-content>
+
+    <!-- <ion-row class="cardfooter">
+        <ion-col>
+            
+        </ion-col>
+      </ion-row> -->
+  </ion-card>
+
+</ion-content>

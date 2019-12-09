@@ -1,0 +1,22 @@
+button, select, p, input {
+  font-family: "TitilliumWeb";
+}
+
+p, button {
+    font-size: 16pt;
+}
+
+button {
+    font-size: 13pt;
+}
+.ionic-selectable-is-enabled,
+.ionic-selectable-item-is-selected,
+.ionic-selectable-has-value,
+.ionic-selectable-has-placeholder {
+    font-family: "TitilliumWeb";
+    font-size: 16pt;
+}
+
+.ion-padding {
+    padding: 1px 1px 1px 5px;
+}

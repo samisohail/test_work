@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+  <h4> Sharing location with you </h4>
+   <table style="width: 100%" class="mat-elevation-z1 padding">
+  
+   <tr class="padding">
+      <th>
+          <mat-checkbox [disabled]="true" [checked] ="distance"> </mat-checkbox> 
+      </th>
+      <td>
+          Distance
+      </td>
+    </tr>
+  <tr>
+        <th> <mat-checkbox [disabled]="true" [checked] ="street"> </mat-checkbox>  </th>
+        <td> Street  </td>
+      </tr>
+    <tr>
+          <th> <mat-checkbox [disabled]="true" [checked] ="city"> </mat-checkbox>  </th>
+          <td> City  </td>
+        </tr>
+
+        <tr>
+            <th> <mat-checkbox [disabled]="true" [checked] ="state"> </mat-checkbox>  </th>
+            <td> State  </td>
+          </tr>
+        <tr>
+            <tr>
+                <th> <mat-checkbox [disabled]="true" [checked] = "country"> </mat-checkbox>  </th>
+                <td> Country  </td>
+              </tr>
+            <tr>
+        
+  </table>
+
+<button mat-button (click)="close();"> Close </button>
+</ion-content>

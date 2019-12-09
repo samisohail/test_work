@@ -1,0 +1,31 @@
+
+.mat-select-text{
+    background-color: red !important;
+    font-size: 10px !important;
+  }
+
+.ion-content, .ion-card-header {
+    font-family:   'Titillium-sb'
+}
+body {
+    font-family:   'Titillium-sb';
+}
+p,h1,h2,label,input, select {
+    font-family:   'Titillium-sb';
+}
+
+h1, h2, h3, h4 {
+    font-family:   'Titillium-sb';
+}
+.item-avatar  {     
+    width:100% !important;  
+    height : 100% !important;  
+    max-width: 100px !important;  //any size
+    max-height: 100px !important; //any size 
+    }
+
+    tr, td {
+        padding: 5px;
+        font-family:   'Titillium-sb';
+        font-size: 17px;
+    }

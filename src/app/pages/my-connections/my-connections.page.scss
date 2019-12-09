@@ -1,0 +1,25 @@
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  font-family: TitilliumWeb;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+  font-family: TitilliumWeb;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+button, p, h4, span {
+    font-family: TitilliumWeb;
+}
+.ion-label, label {
+  font-family: TitilliumWeb;
+}
+mat-expansion-panel-header {
+  background-color: #f7f7f7;
+}

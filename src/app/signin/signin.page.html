@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>
+          Enter your PIN
+            <!-- <span class="mat-small">This header will be styled </span> -->
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="background-color:#dae9eb;border: 1px; border-color: blueviolet;  ">
+<ion-label color="dark" *ngIf="name !== null"> <strong>  Hi, {{ name }} </strong> </ion-label> 
+
+<ion-grid class="ion-text-center" style="width: 50%">
+
+<ion-row class="ion-text-center padding" style="height:40px">
+  
+    <ion-col size="4"> <h3> {{ keys[0] }} </h3> </ion-col>
+    <ion-col> <h3> {{ keys[1] }} </h3> </ion-col>
+    <ion-col> <h3> {{ keys[2] }} </h3> </ion-col>
+    <ion-col> <h3> {{ keys[3] }} </h3> </ion-col>
+  
+</ion-row>
+</ion-grid>
+
+
+  <mat-grid-list cols="3" rowHeight="2:1" class="padding-bottom">
+    <mat-grid-tile>
+      <button mat-stroked-button color="primary" (click)="getKey(1)">  1   </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-stroked-button color="primary" (click)="getKey(2)">  2   </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-stroked-button color="primary" (click)="getKey(3)">  3   </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-stroked-button color="primary" (click)="getKey(4)">  4   </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-stroked-button color="primary" (click)="getKey(5)">  5   </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-stroked-button color="primary" (click)="getKey(6)">  6   </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-stroked-button color="primary" (click)="getKey(7)">  7   </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <button mat-stroked-button color="primary" (click)="getKey(8)">  8   </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <button mat-stroked-button color="primary" (click)="getKey(9)">  9   </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <button mat-stroked-button color="primary" (click)="getKey(0)">  0   </button>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile>
+      <button mat-stoked-button  color="warning" (click)="remove()">
+          <mat-icon aria-hidden="false">backspace</mat-icon>
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+ <div>
+    <button mat-button class="email_button" color="danger" (click)="emailPIN()">Forgot PIN? Email me.</button>
+  </div>
+  <ion-footer>      
+    <button mat-button shape="round" block color="primary" (click)="redirectToSignUp()">
+      No account, create (it's free)
+    </button>
+  </ion-footer>
+</ion-content>

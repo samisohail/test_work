@@ -1,0 +1,29 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab = "messages">
+      <ion-icon name="chatboxes"></ion-icon>
+      <ion-label> Messages </ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab = "alerts" (click) = "loadAlertsTab($event);$event.stopPropagation();">
+      <ion-icon name="notifications"></ion-icon>
+      <ion-label> Alerts </ion-label>
+    </ion-tab-button>   
+
+    <ion-tab-button tab = "location-shared">
+      <ion-icon name="locate"></ion-icon>
+      <ion-label> Location Details </ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>UserBoard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->

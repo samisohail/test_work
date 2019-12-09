@@ -1,0 +1,26 @@
+.ion-card,
+ion-card-header,
+ion-card-content,
+p, input, tr, button {
+  font-family: "TitilliumWeb";
+}
+
+.table_cell {
+    font-family: 'Titillium-sb';
+    font-size: 14px;
+    padding: 10px 10px 10px 10px;    
+}
+
+tr, td {
+    font-size: 14px;
+    font-family: 'Titillium-sb';
+    width: 100%;    
+    padding: 10px 10px 10px 10px;
+}
+.padding {
+    padding: 10px 10px 10px 10px
+}
+.update_button {
+  width: 100%;
+  // min-width: unset !important;
+}

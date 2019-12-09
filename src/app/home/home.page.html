@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <img src="/assets/shapes.svg" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle style="font-family:TitilliumWeb-sb">Get Started</ion-card-subtitle>
+        <ion-card-title>Welcome to Ionic</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p style="font-family: 'TitilliumWeb'">Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      </ion-card-content>
+    </ion-card>
+  
+    <mat-list>
+      <h3 mat-subheader> Friends </h3>
+      <mat-list-item *ngFor="let m of members"> 
+        <mat-icon mat-list-icon>person</mat-icon>
+        <!-- <img matListAvatar src="..." alt="..."> -->
+        <h4 mat-line style="font-family: TitilliumWeb"> {{ m.name }} </h4>
+        <p mat-line style="font-family: TitilliumWeb">
+          <span style="float: left">  {{ m.distance }} </span>
+          <span style="float: right">  {{ m.distance }} </span>
+        </p>
+        <p matLine style="text-align: right">
+          <span> {{m.country}} </span>
+          <span class='demo-2'> - {{m.city}} </span>
+        </p>
+      </mat-list-item>      
+    </mat-list>
+
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label style="font-family: TitilliumWeb">Resources</ion-label>
+      </ion-list-header>
+      <ion-item href="https://ionicframework.com/docs/">
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label style="font-family: TitilliumWeb">Ionic Documentation</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
+        <ion-icon slot="start" color="medium" name="build"></ion-icon>
+        <ion-label style="font-family: TitilliumWeb">Scaffold Out Your App</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/layout/structure">
+        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+        <ion-label style="font-family: TitilliumWeb">Change Your App Layout</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/theming/basics">
+        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+        <ion-label style="font-family: TitilliumWeb">Theme Your App</ion-label>
+      </ion-item>
+    </ion-list>
+</ion-content>

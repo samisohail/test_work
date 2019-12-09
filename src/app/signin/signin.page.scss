@@ -1,0 +1,20 @@
+ion-card-header,
+ion-card-content,
+ion-label,
+p, input, button, label, div {
+  font-family: "TitilliumWeb";
+  font-size: 16px;
+}
+
+.padding {
+  margin-bottom: 10px;
+  margin-top: 10px;    
+}
+.padding-bottom {
+    margin-bottom: 50px;
+}
+.email_button {
+  width: 100%;
+  min-width: unset !important;
+  background-color: #f5f5f5;
+}

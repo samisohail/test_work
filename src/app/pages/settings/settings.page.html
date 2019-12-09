@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>settings</ion-title>
+
+    <ion-button routerLink = '/dashboard' routerDirection = 'root' slot = 'end'>
+      <ion-icon slot='icon-only' name = 'home'></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-family: 'Titillium-sb'"> Access code</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h1>{{ accessCode }}</h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-family: 'Titillium-sb'"
+        >Location update frequency (every)</ion-card-title
+      >
+    </ion-card-header>
+
+    <!-- <ion-card-content mode="ios">
+      <mat-form-field>
+      <mat-select
+      [(value)]="locationFrequency"
+        (selectionChange)="updateLocationFrequency($event.value)"
+      >
+        
+      <mat-option *ngFor="let freq of frequencies" [value]="freq.value">
+          {{ freq.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </ion-card-content> -->
+
+    <ion-card-content>
+      <mat-select
+        [value]="locationFrequency"
+        (selectionChange)="updateLocationFrequency($event.value)"
+        style="font-family: 'Titillium-sb'; font-size: 16px;"
+      >
+        <!-- <mat-option
+          value="1"
+          style="font-family: 'Titillium-sb'; font-size: 16px;"
+        >
+          1 minute
+        </mat-option> -->
+        <mat-option
+          [value]="2"
+          style="font-family: 'Titillium-sb'; font-size: 16px;"
+        >
+          2 minutes
+        </mat-option>
+        <mat-option
+          [value]="5"
+          style="font-family: 'Titillium-sb'; font-size: 16px;"          
+        >
+          5 minutes
+        </mat-option>
+        <mat-option
+          [value]="10"
+          style="font-family: 'Titillium-sb'; font-size: 16px;"
+        >
+          10 minutes
+        </mat-option>
+        <mat-option
+          [value]="30"
+          style="font-family: 'Titillium-sb'; font-size: 16px;"
+        >
+          30 minutes
+        </mat-option>
+        <mat-option
+          [value]="60"
+          style="font-family: 'Titillium-sb'; font-size: 16px;"
+        >
+          60 minutes
+        </mat-option>
+        <mat-option
+          [value] ="-1"
+          style="font-family: 'Titillium-sb'; font-size: 16px; color:red"
+        >
+          Go invisible
+        </mat-option>
+      </mat-select>      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <span style="color: black; font-family: 'Titillium-sb'; font-size: 16px; "> {{ name }} </span>
+      <span style="float: right;">
+        <ion-avatar>
+          <img [src]="img" style="height: 50px; width: 50px;" />
+        </ion-avatar>
+      </span>
+
+      <!-- <ion-card-title>Neil Dryland</ion-card-title> -->
+    </ion-card-header>
+
+    <ion-card-content>
+      <table style="width: 100%">
+        <tr>
+          <td>Account created</td>
+          <td>{{ accountCreated | date }}</td>
+        </tr>
+
+        <tr>
+          <td>Email</td>
+          <td>{{ email }}</td>
+        </tr>
+
+        <tr>
+          <td>
+            <button mat-raised-button (click)="getPicture(1)">
+              <mat-icon>camera_alt</mat-icon>
+            </button>
+          </td>
+          <td>
+            <button mat-raised-button (click)="getPicture(0)">
+              Change picture (Gallery)
+            </button>
+          </td>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

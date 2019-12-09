@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="dashboard"></ion-back-button>
+      </ion-buttons>
+      <ion-title style="font-family: 'Titillium-sb'"> Add alert </ion-title>      
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup] = "form">
+    <p> <strong> Alert </strong> </p> 
+    
+    <ion-item>
+        <ionic-selectable 
+          [items] = "connections" 
+          itemValueField = "id" itemTextField = "name" 
+          [canSearch] = "true" 
+          (onChange) = "selectPerson($event)"
+          formControlName = "user"
+          >
+        </ionic-selectable>
+    </ion-item>
+
+    <p> whem I am &nbsp; &nbsp;
+      <mat-form-field>
+        <mat-select>          
+          <mat-option value="5"> 5 km </mat-option>
+          <mat-option value="8"> 8 km </mat-option>
+          <mat-option value="10"> 10 km </mat-option>
+          <mat-option value="12"> 12 km </mat-option>
+        </mat-select>
+      </mat-form-field>
+      away. </p>
+
+      <p>
+          <button  mat-stroked-button color="primary">Create alert</button>
+      </p>
+  </form>
+  
+</ion-content>
